@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14804cd55a8c6a84cbac2a3bbe2180d6, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  maxFallSpeed: -20
+  maxSpeed: 5
+  maxAirSpeed: 7
+  crouchSpeedMult: 0.5
+  acceleration: 2
+  airAcceleration: 0.6
+  friction: 15
+  crouchFrictionMult: 2
+  airFriction: 30
+  gravity: 20
+  jumpForce: 7
+  jumpIncreaseTime: 0.15
+  coyoteTime: 0.1
+  hardLandingThreshold: -20
+  diveForce: 5
+  diveAngle: {x: 0.25, y: 0.8}
+  diveFreezeTime: 0.1
+  bonkStrengthMult: 0.75
+  bonkDuration: 0.9
+  wallSlideInitSpeed: 4
+  wallSlideFriction: 4
+  maxWallSlideSpeed: 3
+  wallStickTime: 0.3
+  wallJumpForce: 10
+  wallJumpAngle: {x: 0.8, y: 0.7}
+  ledgeGrabLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
