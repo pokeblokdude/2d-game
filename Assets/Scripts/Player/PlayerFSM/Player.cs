@@ -143,11 +143,11 @@ public class Player : MonoBehaviour {
         return speed;
     }
 
-    public float AirAccelerate(float wishDir) {
+    public float AirAccelerate(float wishDir, float airAcceleration, float maxAirSpeed, float airFriction) {
         float speed = actualVelocity.x;
         if(input.moveDir != 0) {
-            if(Mathf.Sign(wishDir) != Mathf.Sign(speed) || Mathf.Abs(speed) < playerData.maxSpeed) {
-                speed += wishDir * 330 * Time.deltaTime * playerData.airAcceleration / playerData.friction;
+            if(Mathf.Sign(wishDir) != Mathf.Sign(speed) || Mathf.Abs(speed) < maxAirSpeed) {
+                speed += wishDir * 330 * Time.deltaTime * airAcceleration / airFriction;
             }
         }
         return speed;

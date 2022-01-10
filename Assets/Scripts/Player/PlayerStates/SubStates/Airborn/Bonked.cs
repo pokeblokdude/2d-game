@@ -45,7 +45,7 @@ public class Bonked : Airborn {
             player.setVelX(player.Accelerate(0, playerData.acceleration, playerData.maxSpeed, playerData.friction));
         }
         else {
-            player.setVelX(player.AirAccelerate(0));
+            player.setVelX(player.AirAccelerate(0, m_airAcceleration, playerData.maxAirSpeed, playerData.airFriction));
         }
     }
 

@@ -34,7 +34,7 @@ public class Jumping : Airborn {
             stateMachine.ChangeState(player.FallingFromJumpState);
         }
 
-        player.setVelX(player.AirAccelerate(moveDir));
+        player.setVelX(player.AirAccelerate(moveDir, m_airAcceleration, playerData.maxAirSpeed, playerData.airFriction));
         
     }
 

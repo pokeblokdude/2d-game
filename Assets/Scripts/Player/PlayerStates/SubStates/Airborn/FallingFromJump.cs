@@ -46,7 +46,7 @@ public class FallingFromJump : Airborn {
             stateMachine.ChangeState(player.AirDivingFreezeState);
         }
 
-        player.setVelX(player.AirAccelerate(moveDir));
+        player.setVelX(player.AirAccelerate(moveDir, m_airAcceleration, playerData.maxAirSpeed, playerData.airFriction));
 
         // sprite flipping
         if(moveDir == -1 && player.actualVelocity.x < 3) {

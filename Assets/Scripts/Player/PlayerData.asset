@@ -20,7 +20,7 @@ MonoBehaviour:
   airAcceleration: 0.6
   friction: 15
   crouchFrictionMult: 2
-  airFriction: 30
+  airFriction: 100
   gravity: 20
   jumpForce: 7
   jumpIncreaseTime: 0.15

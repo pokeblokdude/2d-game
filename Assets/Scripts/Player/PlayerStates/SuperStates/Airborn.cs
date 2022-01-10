@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Airborn : PlayerState {
 
+    protected float m_airAcceleration;
+
     public Airborn(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
     : base(player, stateMachine, playerData, animBoolName) {
         
@@ -15,6 +17,7 @@ public class Airborn : PlayerState {
 
     public override void Enter() {
         base.Enter();
+        m_airAcceleration = playerData.airAcceleration;
     }
 
     public override void Exit() {

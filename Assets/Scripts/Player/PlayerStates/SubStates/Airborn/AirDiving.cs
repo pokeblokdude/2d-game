@@ -19,7 +19,7 @@ public class AirDiving : Airborn {
 
     public override void Enter() {
         base.Enter();
-        playerData.airAcceleration /= 2;
+        m_airAcceleration /= 2;
         velocity = new Vector2(player.wishVelocity.x, player.wishVelocity.y);
         firstFrame = true;
         
@@ -27,7 +27,6 @@ public class AirDiving : Airborn {
 
     public override void Exit() {
         base.Exit();
-        playerData.airAcceleration *= 2;
     }
 
     public override void LogicUpdate() {
@@ -41,7 +40,7 @@ public class AirDiving : Airborn {
             stateMachine.ChangeState(player.IdleState);
         }
         
-        player.setVelX(player.AirAccelerate(moveDir));
+        player.setVelX(player.AirAccelerate(moveDir, m_airAcceleration, playerData.maxAirSpeed, playerData.airFriction));
 
         if(firstFrame) {
             if(Mathf.Sign(moveDir) != Mathf.Sign(velocity.x)) {
@@ -50,7 +49,7 @@ public class AirDiving : Airborn {
             }
             else {
                 if(Mathf.Abs(velocity.x) > playerData.maxAirSpeed) {
-                    player.setVelX(velocity.x + (playerData.diveAngle.x / 2));
+                    player.setVelX(velocity.x + (playerData.diveAngle.x / 2 * moveDir));
                     //Debug.Log("vel higher than max");
                 }
                 else {

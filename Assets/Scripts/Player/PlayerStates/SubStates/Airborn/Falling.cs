@@ -52,7 +52,7 @@ public class Falling : Airborn {
         }
         
 
-        player.setVelX(player.AirAccelerate(moveDir));
+        player.setVelX(player.AirAccelerate(moveDir, m_airAcceleration, playerData.maxAirSpeed, playerData.airFriction));
 
         // sprite flipping
         if(moveDir == -1 && player.actualVelocity.x < 4) {
