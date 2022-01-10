@@ -35,6 +35,7 @@ public class Player : MonoBehaviour {
    
     #endregion
 
+    
     public SpriteRenderer sr { get; private set; }
     public Animator anim { get; private set; }
     public BoxCollider2D col { get; private set; }
@@ -42,8 +43,6 @@ public class Player : MonoBehaviour {
     [SerializeField] PlayerData playerData;
     [SerializeField] public LedgeGrabPoint ledgeGrabPoint;
     [SerializeField] Text text;
-    [SerializeField] PlayerPixelOffset pixelOffset;
-    [SerializeField] bool doPixelOffset = false;
 
     public Controller2D controller { get; private set; }
     public PlayerInput input { get; private set; }
@@ -100,7 +99,6 @@ public class Player : MonoBehaviour {
         setDebugText();
 
         controller.CalculateRaySpacing();
-        if(doPixelOffset) pixelOffset.setOffset(transform.position);
     }
 
     void FixedUpdate() {

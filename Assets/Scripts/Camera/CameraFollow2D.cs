@@ -4,9 +4,6 @@ using UnityEngine;
 // FROM UNITY STANDARD 2D ASSETS
 public class CameraFollow2D : MonoBehaviour {
 
-    [SerializeField] PixelOffsetData pixelOffsetData;
-    [SerializeField] bool doPixelOffset = true;
-
     public Transform target;
     public float damping = 1;
     public float lookAheadFactor = 3;
@@ -17,9 +14,6 @@ public class CameraFollow2D : MonoBehaviour {
     private Vector3 m_LastTargetPosition;
     private Vector3 m_CurrentVelocity;
     private Vector3 m_LookAheadPos;
-
-    float pixelOffsetX;
-    float pixelOffsetY;
 
     void Start() {
         m_LastTargetPosition = target.position;
@@ -42,15 +36,6 @@ public class CameraFollow2D : MonoBehaviour {
 
         Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward*m_OffsetZ;
         Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
-
-        // pixel perfect shit
-        pixelOffsetX = newPos.x % 0.0625f;
-        pixelOffsetY = newPos.y % 0.0625f;
-        pixelOffsetData.pOffsetX = pixelOffsetX;
-        pixelOffsetData.pOffsetY = pixelOffsetY;
-        if(doPixelOffset) {
-            newPos = new Vector3(newPos.x - pixelOffsetX, newPos.y - pixelOffsetY, -10);
-        }
 
         transform.position = newPos;
 

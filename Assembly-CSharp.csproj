@@ -45,7 +45,6 @@
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\AirDivingFreeze.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\Jumping.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerPixelOffset.cs" />
-     <Compile Include="Assets\Art\Materials\Shaders\Awesome Toon\AwesomeToonHelper.cs" />
      <Compile Include="Assets\Scripts\Controller2D.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\CrouchingMoving.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Moving.cs" />
@@ -58,7 +57,6 @@
      <Compile Include="Assets\Scripts\Player\PlayerFSM\PlayerState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFSM\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\ClippingLedge.cs" />
-     <Compile Include="Assets\Art\Materials\Shaders\Awesome Toon\Extra\LightFlicker.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\WallJumping.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFSM\Player.cs" />
      <Compile Include="Assets\Scripts\Player\Old\PlayerOld.cs" />
