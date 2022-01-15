@@ -17,7 +17,7 @@ MonoBehaviour:
   maxAirSpeed: 7
   crouchSpeedMult: 0.5
   acceleration: 2
-  airAcceleration: 0.5
+  airAcceleration: 0.6
   friction: 15
   crouchFrictionMult: 2
   airFriction: 30
@@ -25,6 +25,7 @@ MonoBehaviour:
   jumpForce: 7
   jumpIncreaseTime: 0.15
   coyoteTime: 0.1
+  airDiveSpeedThreshold: 3
   hardLandingThreshold: -20
   diveForce: 5
   diveAngle: {x: 0.25, y: 0.8}

@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Player\Data\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\WallSlidingNoLedgeGrab.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SuperStates\Airborn.cs" />
+     <Compile Include="Assets\Scripts\DayCycle.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\Falling.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFSM\PlayerState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFSM\PlayerInput.cs" />
@@ -69,7 +70,6 @@
      <Compile Include="Assets\InputManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFSM\LedgeGrabPoint.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Crouching.cs" />
-     <Compile Include="Assets\Scripts\DayCycle.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

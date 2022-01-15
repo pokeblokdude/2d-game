@@ -40,7 +40,7 @@ public class Running : Grounded {
             stateMachine.ChangeState(player.JumpingState);
         }
 
-        if(Time.time - startTime >= 3 /*|| (moveDir != Mathf.Sign(player.actualVelocity.x) && moveDir != 0)*/) {
+        if(Time.time - startTime >= 2 || Mathf.Abs(player.actualVelocity.x) < m_grounded_maxSpeed/*|| (moveDir != Mathf.Sign(player.actualVelocity.x) && moveDir != 0)*/) {
             stateMachine.ChangeState(player.MovingState);
         }
     }

@@ -30,19 +30,19 @@ public class DayCycle : MonoBehaviour {
 
         float intensity = sun.intensity;
         if(intensity < lastIntensity) {
-            if(intensity > 0.75f && intensity < 0.8f) {
-                sun.color = Color.Lerp(dayColor, shiftColor, Mathf.InverseLerp(0.8f, 0.75f, intensity));
+            if(intensity > 0.75f && intensity < 0.85f) {
+                sun.color = Color.Lerp(dayColor, shiftColor, Mathf.InverseLerp(0.85f, 0.75f, intensity));
             }
-            else if(intensity > 0.7f && intensity < 0.75f) {
-                sun.color = Color.Lerp(shiftColor, nightColor, Mathf.InverseLerp(0.75f, 0.7f, intensity));
+            else if(intensity > 0.65f && intensity < 0.75f) {
+                sun.color = Color.Lerp(shiftColor, nightColor, Mathf.InverseLerp(0.75f, 0.65f, intensity));
             }
         }
         else if(intensity > lastIntensity) {
-            if(intensity > 0.7f && intensity < 0.75f) {
-                sun.color = Color.Lerp(nightColor, shiftColor, Mathf.InverseLerp(0.7f, 0.75f, intensity));
+            if(intensity > 0.65f && intensity < 0.75f) {
+                sun.color = Color.Lerp(nightColor, shiftColor, Mathf.InverseLerp(0.65f, 0.75f, intensity));
             }
-            else if(intensity > 0.75f && intensity < 0.8f) {
-                sun.color = Color.Lerp(shiftColor, dayColor, Mathf.InverseLerp(0.75f, 0.8f, intensity));
+            else if(intensity > 0.75f && intensity < 0.85f) {
+                sun.color = Color.Lerp(shiftColor, dayColor, Mathf.InverseLerp(0.75f, 0.85f, intensity));
             }
         }
 

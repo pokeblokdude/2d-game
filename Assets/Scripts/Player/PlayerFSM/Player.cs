@@ -103,7 +103,8 @@ public class Player : MonoBehaviour {
             actualVelocity = controller.Move(wishVelocity * Time.deltaTime);
         }
         setDebugText();
-
+        anim.SetFloat("vSpeed", actualVelocity.y);
+        
         controller.CalculateRaySpacing();
     }
 
