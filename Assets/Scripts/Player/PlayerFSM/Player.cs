@@ -162,7 +162,8 @@ public class Player : MonoBehaviour {
 
     void setDebugText() {
         text.text =     $"FPS: {(1/Time.deltaTime).ToString("F0")}\n" +
-                        $"deltaTime: {Time.deltaTime}\n\n" +
+                        $"deltaTime: {Time.deltaTime}\n" +
+                        $"Daylight Ticks: {Mathf.FloorToInt(Mathf.Repeat(Time.time, 1200))}\n\n" +
                         $"Current State: {StateMachine.CurrentState.Name()}\n" +
                         $"HSpeed: {actualVelocity.x.ToString("F2")}\n" +
                         $"VSpeed: {actualVelocity.y.ToString("F2")}\n" +

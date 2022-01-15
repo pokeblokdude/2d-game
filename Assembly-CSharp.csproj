@@ -39,6 +39,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerFSM\PlayerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Camera\PixelPerfectCameraFollow.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\HardLanding.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Running.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Idle.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\WallSliding.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\AirDivingFreeze.cs" />
@@ -68,7 +69,7 @@
      <Compile Include="Assets\InputManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFSM\LedgeGrabPoint.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Crouching.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Running.cs" />
+     <Compile Include="Assets\Scripts\DayCycle.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
