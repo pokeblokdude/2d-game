@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 
     public Idle IdleState { get; private set; }
     public Moving MovingState { get; private set; }
+    public Running RunningState { get; private set; }
     public Crouching CrouchingState { get; private set; }
     public CrouchingMoving CrouchingMovingState { get; private set; }
 
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour {
     public Jumping JumpingState { get; private set; }
     public AirDiving AirDivingState { get; private set; }
     public AirDivingFreeze AirDivingFreezeState { get; private set; }
+
+    public Rolling RollingState { get; private set; }
 
     public Bonked BonkedState { get; private set; }
 
@@ -61,6 +64,7 @@ public class Player : MonoBehaviour {
 
         IdleState = new Idle(this, StateMachine, playerData, "idle");
         MovingState = new Moving(this, StateMachine, playerData, "moving");
+        RunningState = new Running(this, StateMachine, playerData, "running");
         CrouchingState = new Crouching(this, StateMachine, playerData, "crouching");
         CrouchingMovingState = new CrouchingMoving(this, StateMachine, playerData, "crouchingMoving");
 
@@ -71,6 +75,8 @@ public class Player : MonoBehaviour {
         FallingFromJumpState = new FallingFromJump(this, StateMachine, playerData, "fallingFromJump");
         AirDivingState = new AirDiving(this, StateMachine, playerData, "airDiving");
         AirDivingFreezeState = new AirDivingFreeze(this, StateMachine, playerData, "airDivingFreeze");
+
+        RollingState = new Rolling(this, StateMachine, playerData, "rolling");
 
         BonkedState = new Bonked(this, StateMachine, playerData, "bonked");
 
@@ -129,6 +135,7 @@ public class Player : MonoBehaviour {
     public float Accelerate(float wishDir, float acceleration, float maxSpeed, float friction) {
         float speed = actualVelocity.x;
         if(wishDir != 0) {
+            // 330 was about the framerate I was playing at before I fixed the deltaTime issue
             if(Mathf.Abs(speed) < maxSpeed) {
                 speed += wishDir * 330 * Time.deltaTime * acceleration / friction;
             }

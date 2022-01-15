@@ -29,6 +29,9 @@ public class PlayerData : ScriptableObject {
     public Vector2 diveAngle = new Vector2(0.25f, 0.7f);
     public float diveFreezeTime = 0.5f;
 
+    [Header("Rolling")]
+    public float rollStopThreshold = 3.5f;
+
     [Header("Bonk")]
     public float bonkStrengthMult = 1f;
     public float bonkDuration = 1;

@@ -36,7 +36,10 @@ public class AirDiving : Airborn {
             stateMachine.ChangeState(player.BonkedState);
         }
 
-        if(grounded) {
+        if(grounded && action) {
+            stateMachine.ChangeState(player.RollingState);
+        }
+        else if(grounded) {
             stateMachine.ChangeState(player.IdleState);
         }
         

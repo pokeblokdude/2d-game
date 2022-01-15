@@ -43,7 +43,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\WallSliding.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\AirDivingFreeze.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\Jumping.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerPixelOffset.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Rolling.cs" />
      <Compile Include="Assets\Scripts\Controller2D.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\CrouchingMoving.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Moving.cs" />
@@ -62,13 +62,13 @@
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\FallingFromJump.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SuperStates\Grounded.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\ClimbingLedge.cs" />
+     <Compile Include="Assets\Scripts\Util\PixelSnapScript.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Airborn\Bonked.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\InputManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFSM\LedgeGrabPoint.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Crouching.cs" />
-     <Compile Include="Assets\Scripts\Util\PixelSnapScript.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Rolling.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerStates\SubStates\Grounded\Running.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

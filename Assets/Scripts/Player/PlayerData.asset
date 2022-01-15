@@ -17,10 +17,10 @@ MonoBehaviour:
   maxAirSpeed: 7
   crouchSpeedMult: 0.5
   acceleration: 2
-  airAcceleration: 0.6
+  airAcceleration: 0.5
   friction: 15
   crouchFrictionMult: 2
-  airFriction: 100
+  airFriction: 30
   gravity: 20
   jumpForce: 7
   jumpIncreaseTime: 0.15
@@ -29,6 +29,7 @@ MonoBehaviour:
   diveForce: 5
   diveAngle: {x: 0.25, y: 0.8}
   diveFreezeTime: 0.1
+  rollStopThreshold: 2.5
   bonkStrengthMult: 0.75
   bonkDuration: 0.9
   wallSlideInitSpeed: 4

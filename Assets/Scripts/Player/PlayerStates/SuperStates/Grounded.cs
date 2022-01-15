@@ -5,12 +5,14 @@ using UnityEngine;
 public class Grounded : PlayerState {
 
     protected bool DO_MOVEMENT;
+    protected bool EXIT_STATE_WHEN_FALLING;
+    protected float m_grounded_friction;
+    protected float m_grounded_maxSpeed;
+    protected float m_grounded_accel;
 
     float timeOffGround;
     bool coyoteActive;
 
-    protected float m_grounded_friction;
-    protected float m_grounded_maxSpeed;
 
     public Grounded(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
     : base(player, stateMachine, playerData, animBoolName) {
@@ -26,8 +28,10 @@ public class Grounded : PlayerState {
         timeOffGround = 0;
         coyoteActive = false;
         DO_MOVEMENT = true;
+        EXIT_STATE_WHEN_FALLING = true;
         m_grounded_friction = playerData.friction;
         m_grounded_maxSpeed = playerData.maxSpeed;
+        m_grounded_accel = playerData.acceleration;
     }
 
     public override void Exit() {
@@ -42,7 +46,7 @@ public class Grounded : PlayerState {
             timeOffGround = Time.time;
             coyoteActive = true;
         }
-        if(Time.time - timeOffGround > playerData.coyoteTime && !grounded) {
+        if(Time.time - timeOffGround > playerData.coyoteTime && !grounded && EXIT_STATE_WHEN_FALLING) {
             stateMachine.ChangeState(player.FallingState);
         }
 

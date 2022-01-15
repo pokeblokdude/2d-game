@@ -20,6 +20,9 @@ public class Rolling : Grounded {
         if(jump) {
             holdingJump = true;
         }
+        EXIT_STATE_WHEN_FALLING = false;
+        m_grounded_friction /= 10;
+        Debug.Log("rolling");
     }
 
     public override void Exit() {
@@ -32,13 +35,23 @@ public class Rolling : Grounded {
         if(!jump) {
             holdingJump = false;
         }
-
+        
         // State Change Checks
-        if(moveDir != 0) {
+        bool canUncrouch = player.controller.canUncrouch();
+        if(!action && canUncrouch && Mathf.Abs(player.actualVelocity.x) >= m_grounded_maxSpeed) {
+            stateMachine.ChangeState(player.RunningState);
+        }
+        else if(!action && canUncrouch && Mathf.Abs(player.actualVelocity.x) < m_grounded_maxSpeed) {
             stateMachine.ChangeState(player.MovingState);
         }
-        if(crouch) {
-            stateMachine.ChangeState(player.CrouchingState);
+        else if(!action && !canUncrouch) {
+            stateMachine.ChangeState(player.CrouchingMovingState);
+        }
+        if(Mathf.Abs(player.actualVelocity.x) < playerData.rollStopThreshold && canUncrouch) {
+            stateMachine.ChangeState(player.MovingState);
+        }
+        else if (Mathf.Abs(player.actualVelocity.x) < playerData.rollStopThreshold && !canUncrouch) {
+            stateMachine.ChangeState(player.CrouchingMovingState);
         }
         if(jump && !holdingJump) {
             stateMachine.ChangeState(player.JumpingState);
