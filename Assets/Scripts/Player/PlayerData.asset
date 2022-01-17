@@ -25,7 +25,6 @@ MonoBehaviour:
   jumpForce: 7
   jumpIncreaseTime: 0.15
   coyoteTime: 0.1
-  airDiveSpeedThreshold: 3
   hardLandingThreshold: -20
   diveForce: 5
   diveAngle: {x: 0.25, y: 0.8}

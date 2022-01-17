@@ -102,6 +102,8 @@ public class Player : MonoBehaviour {
         if(CALCULATE_COLLISION) {
             actualVelocity = controller.Move(wishVelocity * Time.deltaTime);
         }
+        Debug.DrawRay(transform.position, actualVelocity, Color.green, Time.deltaTime);
+        Debug.DrawRay(transform.position, wishVelocity, Color.blue, Time.deltaTime);
         setDebugText();
         anim.SetFloat("vSpeed", actualVelocity.y);
         
@@ -175,7 +177,8 @@ public class Player : MonoBehaviour {
                         $"Calculating Gravity: {StateMachine.CurrentState.calculatingGravity()}\n" +
                         $"Can Uncrouch: {controller.canUncrouch()}\n" +
                         $"Bumping Head: {controller.isBumpingHead()}\n" +
-                        $"Touching Wall: {controller.isTouchingWall()}\n"
+                        $"Touching Wall: {controller.isTouchingWall()}\n" +
+                        $"On Slope: {controller.isOnSlope()}\n"
                         
         ;
     }

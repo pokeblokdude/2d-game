@@ -26,8 +26,6 @@ public class GrabbingLedge : Airborn {
             hangPoint,
             transitionTime
         );
-
-        
     }
 
     public override void Exit() {

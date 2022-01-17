@@ -17,7 +17,7 @@ public class DayCycle : MonoBehaviour {
 
     void Start() {
         sun = GetComponent<Light2D>();
-        sun.intensity = 0.5f;
+        sun.intensity = 1f;
         lastIntensity = sun.intensity;
     }
 

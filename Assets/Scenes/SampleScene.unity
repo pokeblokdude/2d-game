@@ -697,7 +697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248523633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1875, y: 0, z: 0}
+  m_LocalPosition: {x: 19.21, y: 1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -749,6 +749,7 @@ MonoBehaviour:
     m_Bits: 64
   horizontalRayCount: 4
   verticalRayCount: 4
+  maxSlopeAngle: 50
 --- !u!114 &248523639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,7 +1563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586884820}
   m_LocalRotation: {x: 0, y: 0, z: 0.12758394, w: 0.9918278}
-  m_LocalPosition: {x: 16, y: -8, z: 0}
+  m_LocalPosition: {x: 17.93, y: -7.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1923,15 +1924,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.002008032
-    width: 0.9988701
-    height: 0.9959839
+    x: 0.0006369427
+    y: 0.0011325028
+    width: 0.9987261
+    height: 0.9966025
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.75
+  orthographic size: 6.875
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1955,7 +1956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879127608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 19.17, y: 1.05, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1982,7 +1983,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879127608}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
   m_Name: 
@@ -3276,8 +3277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae1f50bb31066244b271dd9dd23f359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cycleLength: 1200
-  doDaylightCycle: 1
+  cycleLength: 100
+  doDaylightCycle: 0
   dayColor: {r: 1, g: 1, b: 1, a: 0}
   nightColor: {r: 0.5529412, g: 0.83137256, b: 1, a: 0}
   shiftColor: {r: 0.99215686, g: 0.5803922, b: 0.6862745, a: 0}
