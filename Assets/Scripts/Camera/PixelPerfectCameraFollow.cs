@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-// FROM UNITY STANDARD 2D ASSETS
 public class PixelPerfectCameraFollow : MonoBehaviour {
 
     public Transform target;

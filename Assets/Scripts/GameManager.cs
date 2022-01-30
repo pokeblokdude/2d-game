@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour {
     [SerializeField] bool capFramerate = false;
     [SerializeField][Range(0,1)] float timescale = 1;
 
-    public Player player;
-    public Transform spawnPosition;
+    [SerializeField] bool doPlayerSpawnPoint = true;
+
+    Player player;
+    SpawnPosition spawnPosition;
 
     InputManager input;
     bool reset = false;
@@ -29,6 +31,14 @@ public class GameManager : MonoBehaviour {
         };
     }
 
+    void Start() {
+        player = FindObjectOfType<Player>();
+        spawnPosition = FindObjectOfType<SpawnPosition>();
+        if(doPlayerSpawnPoint) {
+            player.transform.position = spawnPosition.transform.position;
+        }
+    }
+
     void Update() {
         if(capFramerate) {
             Application.targetFrameRate = framerate;
@@ -37,7 +47,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void resetGame() {
-        player.transform.position = spawnPosition.position;
+        player.transform.position = spawnPosition.transform.position;
     }
 
     void OnEnable() {
