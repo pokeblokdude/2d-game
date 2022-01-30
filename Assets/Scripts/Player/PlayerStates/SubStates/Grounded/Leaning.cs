@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Idle : Grounded {
+public class Leaning : Grounded {
     
-    bool holdingJump;
-
-    public Idle(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
+    public Leaning(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
     : base(player, stateMachine, playerData, animBoolName) {
         
     }
@@ -17,9 +15,6 @@ public class Idle : Grounded {
 
     public override void Enter() {
         base.Enter();
-        if(jump) {
-            holdingJump = true;
-        }
     }
 
     public override void Exit() {
@@ -28,17 +23,6 @@ public class Idle : Grounded {
 
     public override void LogicUpdate() {
         base.LogicUpdate();
-        // reset jump
-        if(!jump) {
-            holdingJump = false;
-        }
-
-        if(actionUp) {
-            player.anim.SetBool("lookUp", true);
-        }
-        else {
-            player.anim.SetBool("lookUp", false);
-        }
 
         // State Change Checks
         if(moveDir != 0) {
@@ -47,13 +31,12 @@ public class Idle : Grounded {
         if(crouch) {
             stateMachine.ChangeState(player.CrouchingState);
         }
-        if(jump && !holdingJump) {
+        if(jump) {
             stateMachine.ChangeState(player.JumpingState);
         }
-        if(touchingWall != 0 && Time.time - startTime > 3) {
-            stateMachine.ChangeState(player.LeaningState);
-        }
 
+        // sprite flipping
+        player.sr.flipX = touchingWall == 1;
     }
 
     public override void PhysicsUpdate() {

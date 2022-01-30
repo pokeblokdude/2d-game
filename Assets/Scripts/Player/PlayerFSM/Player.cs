@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public PlayerStateMachine StateMachine { get; private set; }
 
     public Idle IdleState { get; private set; }
+    public Leaning LeaningState { get; private set; }
     public Moving MovingState { get; private set; }
     public Running RunningState { get; private set; }
     public Crouching CrouchingState { get; private set; }
@@ -38,7 +39,6 @@ public class Player : MonoBehaviour {
    
     #endregion
 
-    
     public SpriteRenderer sr { get; private set; }
     public Animator anim { get; private set; }
     public BoxCollider2D col { get; private set; }
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour {
         StateMachine = new PlayerStateMachine();
 
         IdleState = new Idle(this, StateMachine, playerData, "idle");
+        LeaningState = new Leaning(this, StateMachine, playerData, "leaning");
         MovingState = new Moving(this, StateMachine, playerData, "moving");
         RunningState = new Running(this, StateMachine, playerData, "running");
         CrouchingState = new Crouching(this, StateMachine, playerData, "crouching");
@@ -168,6 +169,7 @@ public class Player : MonoBehaviour {
                         $"deltaTime: {Time.deltaTime}\n" +
                         $"Daylight Ticks: {Mathf.FloorToInt(Mathf.Repeat(Time.time, 1200))}\n\n" +
                         $"Current State: {StateMachine.CurrentState.Name()}\n" +
+                        $"Speed: {actualVelocity.magnitude.ToString("f2")}\n" +
                         $"HSpeed: {actualVelocity.x.ToString("F2")}\n" +
                         $"VSpeed: {actualVelocity.y.ToString("F2")}\n" +
                         $"WishVel: {wishVelocity.ToString("F4")}\n" +
@@ -177,8 +179,7 @@ public class Player : MonoBehaviour {
                         $"Calculating Gravity: {StateMachine.CurrentState.calculatingGravity()}\n" +
                         $"Can Uncrouch: {controller.canUncrouch()}\n" +
                         $"Bumping Head: {controller.isBumpingHead()}\n" +
-                        $"Touching Wall: {controller.isTouchingWall()}\n" +
-                        $"On Slope: {controller.isOnSlope()}\n"
+                        $"Touching Wall: {controller.isTouchingWall()}\n"
                         
         ;
     }

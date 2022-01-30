@@ -7,7 +7,7 @@ public class Controller2D : MonoBehaviour {
     
     public LayerMask collisionMask;
 
-    const float skinWidth = 0.00001f;
+    const float skinWidth = 0.015f;
     public int horizontalRayCount = 4;
     public int verticalRayCount = 4;
     public float maxSlopeAngle = 50;
@@ -22,8 +22,6 @@ public class Controller2D : MonoBehaviour {
     bool bumpingHead = false;
     bool touchingWall = false;
     int wallDir = 0;
-    bool onSlope = false;
-    Vector3 slopeNormal;
 
     void Start() {
         col = GetComponent<BoxCollider2D>();
@@ -34,7 +32,6 @@ public class Controller2D : MonoBehaviour {
         // reset variables
         grounded = false;
         bumpingHead = false;
-        onSlope = false;
 
         // reset ray origins to line up with the hitbox
         UpdateRaycastOrigins();
@@ -47,6 +44,7 @@ public class Controller2D : MonoBehaviour {
         if(moveAmount.y != 0) {
             VerticalCollisions(ref moveAmount);
         }
+
         // apply velocity
         transform.Translate(moveAmount);
 
@@ -60,19 +58,19 @@ public class Controller2D : MonoBehaviour {
         // set the ray direction/length equal to the X wish velocity
         float directionX = Mathf.Sign(moveAmount.x);
         float rayLength = Mathf.Abs(moveAmount.x) + skinWidth;
-        
+
         // go through each horizontal ray, starting from the bottom
         for(int i = 0; i < horizontalRayCount; i++) {
             Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
             rayOrigin += Vector2.up * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
-            Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red, Time.deltaTime);
 
             if(hit) {
                 moveAmount.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
                 touchingWallTemp = true;
-                wallDir = (int)Mathf.Sign(hit.point.x - transform.position.x);
+                wallDir = touchingWallTemp ? (int)Mathf.Sign(hit.point.x - transform.position.x) : 0;
             }
             if(touchingWallTemp) {touchingWallCount++;}
         }
@@ -90,7 +88,7 @@ public class Controller2D : MonoBehaviour {
             Vector2 rayOrigin = (directionY == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
             rayOrigin += Vector2.right * (verticalRaySpacing * i + moveAmount.x);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
-            Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red, Time.deltaTime);
 
             if(hit) {
                 moveAmount.y = (hit.distance - skinWidth) * directionY;
@@ -125,8 +123,8 @@ public class Controller2D : MonoBehaviour {
     public bool canUncrouch() {
         RaycastHit2D hit1 = Physics2D.Raycast(raycastOrigins.topLeft, Vector2.up, 0.5f, collisionMask);
         RaycastHit2D hit2 = Physics2D.Raycast(raycastOrigins.topRight, Vector2.up, 0.5f, collisionMask);
-        Debug.DrawRay(raycastOrigins.topLeft, Vector2.up * 0.4f, Color.red, 0.01f);
-        Debug.DrawRay(raycastOrigins.topRight, Vector2.up * 0.4f, Color.red, 0.01f);
+        Debug.DrawRay(raycastOrigins.topLeft, Vector2.up * 0.4f, Color.red, Time.deltaTime);
+        Debug.DrawRay(raycastOrigins.topRight, Vector2.up * 0.4f, Color.red, Time.deltaTime);
 
         return !(hit1 || hit2);
     }
@@ -144,9 +142,6 @@ public class Controller2D : MonoBehaviour {
     }
     public int isTouchingWall() {
         return touchingWall ? wallDir : 0;
-    }
-    public bool isOnSlope() {
-        return onSlope;
     }
 
     public Vector2[] edgeMiddles() {
