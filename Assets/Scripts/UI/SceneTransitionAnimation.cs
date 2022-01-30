@@ -13,11 +13,12 @@ public class SceneTransitionAnimation : MonoBehaviour {
     }
 
     public void PlaySceneEnter() {
-        rect.DOAnchorPos(Vector2.left * 800, 1);
+        rect.DOAnchorPos(Vector2.left * 800, 0.5f).SetEase(Ease.OutCubic);
     }
 
     public void PlaySceneExit() {
-        rect.DOAnchorPos(Vector2.zero, 1);
+        rect.anchoredPosition = new Vector2(800, 0);
+        rect.DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutCubic);
     }
 
 }

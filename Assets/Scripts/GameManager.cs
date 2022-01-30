@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] bool capFramerate = false;
     [SerializeField][Range(0,1)] float timescale = 1;
 
-    [SerializeField] bool doPlayerSpawnPoint = true;
+    [SerializeField] bool doPlayerSpawnPoint = false;
 
     Player player;
     SpawnPosition spawnPosition;
